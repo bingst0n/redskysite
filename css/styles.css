@@ -105,7 +105,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .hero-full .carousel{position:absolute;inset:0;max-width:none;margin:0;border-radius:0;box-shadow:none}
 .hero-full .carousel-track{position:absolute;inset:0;aspect-ratio:auto;height:100%}
 .hero-full .carousel-track img{object-position:center 40%}
-.hero-full .hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(92deg,rgba(112,27,21,.62) 0%,rgba(140,38,32,.45) 46%,rgba(169,51,39,.22) 100%)}
+.hero-full .hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(92deg,rgba(16,19,21,.5) 0%,rgba(16,19,21,.25) 46%,rgba(16,19,21,.04) 100%)}
 .hero-full .car-btn,.hero-full .car-count{z-index:2}
 .hero-full .car-btn{top:auto;bottom:22px;transform:none}
 .hero-full .car-btn.prev{left:auto;right:118px}
@@ -119,8 +119,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 }
 .hero-lockup{display:flex;align-items:center;gap:26px;margin-bottom:36px}
 .hero-mark{margin:0}
-.hero-mark .line1{display:block;font-family:var(--logo);font-weight:700;font-size:clamp(52px,8.4vw,116px);line-height:.92;letter-spacing:.02em;text-transform:uppercase;color:#fff;text-shadow:0 4px 30px rgba(60,10,6,.35)}
-.hero-mark .line2{display:block;font-family:var(--slab);font-weight:400;font-size:clamp(16px,2.3vw,30px);letter-spacing:.1em;text-transform:uppercase;color:#FBE9E4;margin-top:14px;text-shadow:0 3px 18px rgba(60,10,6,.35)}
+.hero-mark .line1{display:block;font-family:var(--logo);font-weight:700;font-size:clamp(52px,8.4vw,116px);line-height:.92;letter-spacing:.02em;text-transform:uppercase;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero-mark .line2{display:block;font-family:var(--slab);font-weight:400;font-size:clamp(16px,2.3vw,30px);letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-top:14px;text-shadow:0 2px 12px rgba(0,0,0,.35)}
 .hero-content .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:38px}
 .hero-content .cta .btn{background:#fff;border-color:#fff;color:var(--red);font-size:16px;padding:14px 30px 13px}
 .hero-content .cta .btn:hover{background:#F6E7E4;border-color:#F6E7E4}
