@@ -1,0 +1,6 @@
+Redirect 301 /about.html /about/
+Redirect 301 /staff.html /staff/
+Redirect 301 /registration.html /registration/
+Redirect 301 /schedule.html /schedule/
+Redirect 301 /contact-us.html /contact-us/
+Redirect 301 /index.html /
