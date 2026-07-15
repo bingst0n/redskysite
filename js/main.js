@@ -41,19 +41,9 @@
   // (the home page has its own hero carousel inline instead)
   var band = document.querySelector('[data-carousel-band]');
   if (band) {
-    var slides = [35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 15, 11, 2];
-    var imgs = slides.map(function (n, k) {
-      return '<img src="/images/slides/' + n + '.jpg" alt=""' + (k === 0 ? ' class="active"' : k === 1 ? '' : ' loading="lazy"') + '>';
-    }).join('');
     band.outerHTML =
       '<div class="carousel-band">' +
-        '<div class="carousel" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Photos from camp at Red Sky Sports Academy">' +
-          '<div class="carousel-track">' + imgs + '</div>' +
-          '<button class="car-btn prev" aria-label="Previous photo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 2.5 5 8l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
-          '<button class="car-btn next" aria-label="Next photo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2.5 11 8l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
-          '<button class="car-btn pause" aria-label="Pause slideshow" aria-pressed="false"><svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="3" height="10" rx="1" fill="currentColor"/><rect x="9" y="3" width="3" height="10" rx="1" fill="currentColor"/></svg><svg class="ic-play" viewBox="0 0 16 16" aria-hidden="true" style="display:none"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></button>' +
-          '<div class="car-count"><span class="car-pos">1</span>&thinsp;/&thinsp;' + slides.length + '</div>' +
-        '</div>' +
+        '<img class="band-photo" src="/images/slides/' + band.getAttribute('data-carousel-band') + '.jpg" alt="">' +
       '</div>';
   }
 
@@ -123,7 +113,7 @@
   var carousel = document.querySelector('.carousel');
   if (!carousel) return;
 
-  var slides = carousel.querySelectorAll('.carousel-track img');
+  var slides = carousel.querySelectorAll('.carousel-track > *');
   var posEl = carousel.querySelector('.car-pos');
   var n = slides.length;
   if (n === 0) return;
@@ -139,7 +129,8 @@
     if (posEl) posEl.textContent = i + 1;
     // Eagerly decode the next slide so fades never flash empty
     var next = slides[(i + 1) % n];
-    if (next.loading === 'lazy') next.loading = 'eager';
+    var imgs = next.tagName === 'IMG' ? [next] : next.querySelectorAll('img');
+    for (var m = 0; m < imgs.length; m++) if (imgs[m].loading === 'lazy') imgs[m].loading = 'eager';
   }
 
   function start() {

@@ -7,27 +7,14 @@
   <meta name="description" content="Red Sky Sports Academy LLC is the premier multi-sport day camp located at The Cape Cod Academy in Osterville, Massachusetts.">
   <link rel="icon" href="/images/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="/css/styles.css?v=12">
+  <link rel="stylesheet" href="/css/styles.css?v=13">
 </head>
 <body>
 
 <section class="hero-full">
-  <div class="carousel" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Photos from camp at Red Sky Sports Academy">
-    <div class="carousel-track">
-      <img src="/images/hero/1.jpg" alt="A group of campers in red Red Sky shirts flexing and holding a football on the field" class="active">
-      <img src="/images/hero/2.jpg" alt="Street hockey campers and counselors grinning together after a game">
-      <img src="/images/hero/3.jpg" alt="A young camper and a counselor at the Cape Cod Academy entrance" loading="lazy">
-      <img src="/images/hero/4.jpg" alt="Two campers in Red Sky shirts throwing a peace sign on the field" loading="lazy">
-      <img src="/images/hero/5.jpg" alt="A camper leaping to catch a pass during flag football" loading="lazy">
-      <img src="/images/hero/6.jpg" alt="A counselor coaching a young camper at the tennis net" loading="lazy">
-    </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <button class="car-btn prev" aria-label="Previous photo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 2.5 5 8l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    <button class="car-btn next" aria-label="Next photo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2.5 11 8l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    <button class="car-btn pause" aria-label="Pause slideshow" aria-pressed="false"><svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="3" height="10" rx="1" fill="currentColor"/><rect x="9" y="3" width="3" height="10" rx="1" fill="currentColor"/></svg><svg class="ic-play" viewBox="0 0 16 16" aria-hidden="true" style="display:none"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></button>
-    <div class="car-count"><span class="car-pos">1</span>&thinsp;/&thinsp;6</div>
-  </div>
-  <div class="wrap hero-content">
+  <img class="hero-photo" src="/images/hero/1.jpg" alt="A group of campers in red Red Sky shirts flexing and holding a football on the field">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
     <div class="hero-lockup">
       <h1 class="hero-mark"><span class="line1">Red Sky</span><span class="line2">Sports Academy</span></h1>
     </div>
@@ -39,12 +26,30 @@
   </div>
 </section>
 
+<div class="carousel-band hero-band">
+  <div class="carousel" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Photos from camp at Red Sky Sports Academy">
+    <div class="carousel-track">
+      <div class="slide active"><img src="/images/hero/2.jpg" alt="Street hockey campers and counselors grinning together after a game"><img src="/images/hero/3.jpg" alt="A young camper and a counselor at the Cape Cod Academy entrance"><img src="/images/hero/4.jpg" alt="Two campers in Red Sky shirts throwing a peace sign on the field"></div>
+      <div class="slide"><img src="/images/hero/5.jpg" alt="A camper leaping to catch a pass during flag football" loading="lazy"><img src="/images/hero/6.jpg" alt="A counselor coaching a young camper at the tennis net" loading="lazy"></div>
+    </div>
+    <button class="car-btn prev" aria-label="Previous photo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 2.5 5 8l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="car-btn next" aria-label="Next photo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2.5 11 8l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="car-btn pause" aria-label="Pause slideshow" aria-pressed="false"><svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="3" height="10" rx="1" fill="currentColor"/><rect x="9" y="3" width="3" height="10" rx="1" fill="currentColor"/></svg><svg class="ic-play" viewBox="0 0 16 16" aria-hidden="true" style="display:none"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></button>
+    <div class="car-count"><span class="car-pos">1</span>&thinsp;/&thinsp;2</div>
+  </div>
+</div>
+
 <section class="welcome wrap">
-  <p class="intro"><strong>Red Sky Sports Academy LLC</strong> is the premier multi-sport day camp located at <a href="http://www.capecodacademy.org/">The Cape Cod Academy</a> in Osterville, Massachusetts. Red Sky offers a wide variety of activities including soccer, lacrosse, volleyball, basketball, baseball, tennis, street hockey and flag football. Although taught in groups each sport is catered to the individual camper's ability.</p>
-  <p>We welcome beginners to sport, those working on developing their skills and youngsters who simply want an enjoyable camp experience.</p>
-  <p class="dim">Our half-day program is a good way to introduce young people to the camp format and allows seasoned campers time to enjoy the rest of their busy summer schedule with family and friends.</p>
-  <a class="eq-link" href="/pdfs/Required%20Equipment%20by%20Sport.pdf">Click here for a list of required equipment by sport</a>
+  <div class="welcome-grid">
+    <p class="callout"><strong>Red Sky Sports Academy LLC</strong> is the premier multi-sport day camp located at <a href="http://www.capecodacademy.org/">The Cape Cod Academy</a> in Osterville, Massachusetts.</p>
+    <div class="welcome-body">
+      <p>Red Sky offers a wide variety of activities including soccer, lacrosse, volleyball, basketball, baseball, tennis, street hockey and flag football. Although taught in groups each sport is catered to the individual camper's ability.</p>
+      <p>We welcome beginners to sport, those working on developing their skills and youngsters who simply want an enjoyable camp experience.</p>
+      <p class="dim">Our half-day program is a good way to introduce young people to the camp format and allows seasoned campers time to enjoy the rest of their busy summer schedule with family and friends.</p>
+    </div>
+  </div>
   <ul class="sports-list"><li>Soccer</li><li>Lacrosse</li><li>Volleyball</li><li>Basketball</li><li>Baseball</li><li>Tennis</li><li>Street Hockey</li><li>Flag Football</li></ul>
+  <a class="eq-link" href="/pdfs/Required%20Equipment%20by%20Sport.pdf">Click here for a list of required equipment by sport</a>
 </section>
 
 <section class="section alt">
@@ -63,6 +68,6 @@
   </div>
 </section>
 
-<script src="/js/main.js?v=13"></script>
+<script src="/js/main.js?v=15"></script>
 </body>
 </html>
