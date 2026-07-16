@@ -61,8 +61,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .badge{flex:none;background:#fff;color:var(--red);width:48px;height:48px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--logo);font-size:13px;line-height:1;letter-spacing:.08em;font-weight:700;padding-top:2px;box-shadow:var(--shadow-sm)}
 .brand{display:flex;align-items:center;gap:12px;color:var(--ink)}
 .brand:hover{text-decoration:none}
-.brand .name{font-family:var(--logo);font-weight:700;font-size:17px;white-space:nowrap;line-height:1.15;color:#fff}
-.brand .name span{display:block;font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#F3D2CC;margin-top:4px}
 .nav-links{display:flex;align-items:center;gap:4px;margin-left:auto}
 .nav-links a{color:#fff;font-size:14.5px;font-weight:500;white-space:nowrap;padding:8px 10px;border-radius:7px}
 .nav-links a:hover{color:#fff;text-decoration:none;background:rgba(255,255,255,.16)}
@@ -125,23 +123,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .hero-content .count{margin-top:30px;background:rgba(40,10,7,.35);border-color:rgba(255,255,255,.3);color:#FBE9E4}
 .hero-content .count .num{background:#fff;color:var(--red)}
 .hero-band .carousel-track{aspect-ratio:1060/340}
+.hero-full .carousel{display:none} /* mobile-only slideshow, shown <880px */
 @media (max-width:880px){
-  /* stacked hero: photo on top, copy on a solid panel below — no text over the image */
+  /* full 6-photo slideshow on top, copy on a solid panel below; the collage band is desktop-only */
   .hero-full{display:block;height:auto;min-height:0}
-  .hero-photo{position:static;width:100%;height:auto;aspect-ratio:4/3;max-height:56vh;object-position:center 30%}
+  .hero-photo{display:none}
   .hero-overlay{display:none}
-  .hero-content{background:var(--ground);border-bottom:1px solid var(--line);padding:28px 22px 32px}
+  .hero-full .carousel{display:block;max-width:none;margin:0;border-radius:0;box-shadow:none}
+  .hero-full .carousel-track{aspect-ratio:1/1;max-height:62vh}
+  .hero-full .carousel-track img{object-position:center 25%}
+  .hero-band{display:none}
+  /* red panel, white-on-red copy — same treatment as the desktop overlay */
+  .hero-content{background:var(--red);padding:34px 22px 36px}
   .hero-lockup{margin-bottom:20px}
-  .hero-mark .line1{color:var(--ink);text-shadow:none}
-  .hero-mark .line2{color:var(--red);text-shadow:none;letter-spacing:.16em;margin-top:10px}
+  .hero-mark .line1{text-shadow:none}
+  .hero-mark .line2{text-shadow:none;letter-spacing:.16em;margin-top:10px}
   .hero-content .cta{margin-top:0}
-  .hero-content .cta .btn{background:var(--red);border-color:var(--red);color:#fff;font-size:15px;padding:12px 26px 11px}
-  .hero-content .cta .btn:hover{background:var(--red-dark);border-color:var(--red-dark)}
-  .hero-content .cta .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-  .hero-content .cta .btn.ghost:hover{border-color:var(--ink);background:transparent}
-  .hero-content .count{margin-top:24px;background:var(--paper);border-color:var(--line);color:var(--red)}
-  .hero-content .count .num{background:var(--ink);color:#fff}
-  .hero-full a:focus-visible{outline-color:var(--red)}
+  .hero-content .count{margin-top:24px}
   .hero-band .carousel-track{aspect-ratio:16/9}
 }
 
@@ -274,7 +272,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .footer .fbottom a{color:#B9BEC1}
 
 /* ---------- responsive ---------- */
-@media (max-width:1220px){
+@media (max-width:1000px){
   .nav-links{display:none}
   .nav-toggle{display:block}
 }

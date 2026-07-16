@@ -27,9 +27,8 @@
   document.body.insertAdjacentHTML('afterbegin',
     '<header class="nav" id="nav">' +
       '<div class="nav-inner">' +
-        '<a class="brand" href="/">' +
+        '<a class="brand" href="/" aria-label="Red Sky Sports Academy — Home">' +
           '<span class="badge" aria-hidden="true"><span>RED</span><span>SKY</span></span>' +
-          '<span class="name">Red Sky Sports Academy<span>Osterville, Massachusetts</span></span>' +
         '</a>' +
         '<nav class="nav-links" aria-label="Main">' + navLinks() + REGISTER + '</nav>' +
         '<button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
@@ -108,11 +107,13 @@
   }
 })();
 
-// Photo carousel (auto-advance, pause on hover/focus, arrows, counter)
+// Photo carousels (auto-advance, pause on hover/focus, arrows, counter) —
+// the home hero has two: the mobile slideshow and the desktop collage band
 (function () {
-  var carousel = document.querySelector('.carousel');
-  if (!carousel) return;
+  var carousels = document.querySelectorAll('.carousel');
+  for (var c = 0; c < carousels.length; c++) setup(carousels[c]);
 
+  function setup(carousel) {
   var slides = carousel.querySelectorAll('.carousel-track > *');
   var posEl = carousel.querySelector('.car-pos');
   var n = slides.length;
@@ -171,4 +172,5 @@
   });
 
   start();
+  }
 })();
