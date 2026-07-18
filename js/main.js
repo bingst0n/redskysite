@@ -28,9 +28,9 @@
     '<header class="nav" id="nav">' +
       '<div class="nav-inner">' +
         '<a class="brand" href="/" aria-label="Red Sky Sports Academy — Home">' +
-          '<span class="brand-lockup" aria-hidden="true">' +
-            '<span class="bl-name"><span>Red</span><span>Sky</span></span>' +
-            '<span class="bl-tag">Sports Academy</span>' +
+          '<span class="brand-flag" aria-hidden="true">' +
+            '<span class="bf-name">Red Sky</span>' +
+            '<span class="bf-tag">Sports Academy</span>' +
           '</span>' +
         '</a>' +
         '<nav class="nav-links" aria-label="Main">' + navLinks() + REGISTER + '</nav>' +
