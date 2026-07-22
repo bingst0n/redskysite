@@ -1,5 +1,9 @@
 // Red Sky Sports Academy — shared scripts
 
+// Summer 2026 concludes Aug 8 — from then on the site drops the Register
+// call-to-action and switches to off-season copy. Shared by the IIFEs below.
+var seasonOver = new Date() >= new Date(2026, 7, 8);
+
 // Shared page chrome — header nav, subpage carousel band, CTA band + footer.
 // Each lives here ONCE: edit PAGES (or the markup below) and every page updates.
 // Must run before the behavior IIFEs below so their querySelectors find the markup.
@@ -11,10 +15,10 @@
     ['/lessons/', 'Lessons'],
     ['/registration/', 'Registration'],
     ['/schedule/', 'Schedule/Rates'],
-    ['/donate/', 'Donate'],
+    ['/donate/', 'Scholarship'],
     ['/contact-us/', 'Contact Us']
   ];
-  var REGISTER = '<a class="btn" href="https://campscui.active.com/orgs/RedSkySportsAcademy?orglink=camps-registration">Register</a>';
+  var REGISTER = seasonOver ? '' : '<a class="btn" href="https://campscui.active.com/orgs/RedSkySportsAcademy?orglink=camps-registration">Register</a>';
   var page = location.pathname.replace(/index\.html$/, '');
   if (page.charAt(page.length - 1) !== '/') page += '/';
 
@@ -54,8 +58,8 @@
   }
 
   document.body.insertAdjacentHTML('beforeend',
-    '<div class="cta-band">' +
-      '<span class="band-label">Summer 2026</span>' + REGISTER +
+    '<div class="cta-band' + (seasonOver ? ' is-concluded' : '') + '">' +
+      '<span class="band-label">' + (seasonOver ? 'Summer 2026 has concluded &mdash; get ready for Summer 2027!' : 'Summer 2026') + '</span>' + REGISTER +
       '<div class="call"><a href="tel:5082211217">(508) 221-1217</a></div>' +
     '</div>' +
     '<footer class="footer">' +
@@ -74,6 +78,9 @@
           '</nav>' +
         '</div>' +
       '</div>' +
+      // Required on all camp promotional material by 105 CMR 430.190(C);
+      // Red Sky's local board of health is the Town of Barnstable's.
+      '<div class="flicense">This camp must comply with regulations of the Massachusetts Department of Public Health and be licensed by the local board of health &mdash; licensed by the <a href="https://www.barnstable.gov/">Town of Barnstable</a> Board of Health.</div>' +
       '<div class="fbottom">Red Sky Sports Academy LLC &middot; <a href="tel:5082211217">(508) 221-1217</a> &middot; <a href="mailto:info@redskysportsacademy.com">info@redskysportsacademy.com</a></div>' +
     '</footer>');
 })();
@@ -87,6 +94,40 @@
     var open = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
   });
+})();
+
+// Session gating (registration) — a session goes gray and unclickable once the
+// midnight following its last day (data-end) has passed.
+(function () {
+  var sessions = document.querySelectorAll('.session[data-end]');
+  var now = new Date();
+  for (var i = 0; i < sessions.length; i++) {
+    // parse data-end as a LOCAL date; new Date('2026-07-03') would be UTC
+    var d = sessions[i].getAttribute('data-end').split('-');
+    if (now < new Date(+d[0], d[1] - 1, +d[2] + 1)) continue;
+    sessions[i].classList.add('is-past');
+    sessions[i].removeAttribute('href');
+    sessions[i].setAttribute('aria-disabled', 'true');
+    sessions[i].querySelector('.go').textContent = 'Session complete';
+  }
+})();
+
+// Off-season copy — season labels, the registration notice, and the hero
+// Register button (the nav and band ones are already gone with REGISTER).
+(function () {
+  if (!seasonOver) return;
+  var labels = document.querySelectorAll('[data-season-label]');
+  for (var i = 0; i < labels.length; i++) labels[i].innerHTML = 'Summer 2026 &middot; Concluded';
+
+  var heroBtn = document.querySelector('.hero-content .btn[href*="camps-registration"]');
+  if (heroBtn) heroBtn.parentNode.removeChild(heroBtn);
+
+  var grid = document.querySelector('.sessions-grid');
+  if (grid) grid.insertAdjacentHTML('beforebegin',
+    '<div class="season-notice">' +
+      '<h2>Summer 2026 has concluded</h2>' +
+      '<p>Thank you to our campers and families for a wonderful summer. Dates and registration for Summer 2027 will be posted here soon &mdash; call the office at <a href="tel:5082211217">(508) 221-1217</a> with any questions in the meantime.</p>' +
+    '</div>');
 })();
 
 // Countdown pill (home hero) — three states for Summer 2026:

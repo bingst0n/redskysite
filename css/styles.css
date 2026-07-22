@@ -194,6 +194,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .welcome-grid{max-width:1000px;margin:0 auto 46px;display:grid;grid-template-columns:5fr 6fr;gap:18px 56px;align-items:start}
 .welcome .callout{margin:0;font-size:clamp(22px,2.6vw,29px);line-height:1.42;border-left:3px solid var(--red);padding-inline-start:22px;text-wrap:pretty}
 .welcome .callout strong{color:var(--red)}
+/* decorative Cape Cod silhouette — faint watermark behind the callout that
+   names Osterville; brand red painted through the silhouette's alpha; hidden
+   where mask is unsupported so it never falls back to a solid red block */
+.callout-col{position:relative}
+.cape-mark{display:none;position:absolute;z-index:-1;top:-36px;right:-30px;width:330px;aspect-ratio:1}
+@supports (mask-image:url(x)) or (-webkit-mask-image:url(x)){.cape-mark{display:block;background:var(--red);opacity:.07;-webkit-mask:url(/images/capecod.webp) no-repeat center/contain;mask:url(/images/capecod.webp) no-repeat center/contain}}
 .welcome-body p{max-width:58ch;margin:0 0 16px;font-size:16.5px}
 .welcome-body p:last-child{margin-bottom:0}
 .welcome-body p.dim{color:var(--muted)}
@@ -201,7 +207,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .sports-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;column-gap:16px;row-gap:14px;max-width:860px;margin-inline:auto}
 .sports-list li{background:var(--red);color:#fff;font-family:var(--logo);font-weight:700;font-size:clamp(12.5px,1.4vw,14px);text-transform:uppercase;letter-spacing:.07em;line-height:1;display:inline-flex;align-items:center;padding:13px 46px 13px 16px;clip-path:polygon(0 0,calc(100% - 34px) 6%,100% 50%,calc(100% - 34px) 94%,0 100%);transform:rotate(-1.4deg)}
 .sports-list li:nth-child(even){background:var(--ink);transform:rotate(1.2deg)}
-@media (max-width:860px){.welcome-grid{grid-template-columns:1fr;gap:16px;margin-bottom:38px}}
+@media (max-width:860px){.welcome-grid{grid-template-columns:1fr;gap:16px;margin-bottom:38px}.cape-mark{right:0;width:min(300px,72vw)}}
 
 /* ---------- facts / cards ---------- */
 .facts-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;margin-bottom:18px}
@@ -230,6 +236,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .session .date{display:block;font-family:var(--logo);font-size:17px;font-weight:700;margin-top:5px}
 .session .go{display:block;margin-top:8px;font-size:13.5px;color:var(--muted)}
 .session:hover .go{color:var(--red)}
+/* sessions whose last day has passed — grayed and inert, no hover response */
+.session.is-past,.session.is-past:hover{background:var(--ground);border-color:var(--line);color:var(--muted);cursor:default;transform:none;box-shadow:none}
+.session.is-past .wk,.session.is-past .date,.session.is-past:hover .go{color:var(--muted)}
+.season-notice{background:var(--red-wash);border-left:3px solid var(--red);border-radius:var(--radius-sm);padding:22px 24px;margin-bottom:26px}
+.season-notice h2{font-family:var(--logo);font-size:clamp(20px,2.4vw,24px);font-weight:700;margin:0}
+.season-notice p{margin:9px 0 0;font-size:15.5px;color:var(--muted);max-width:70ch}
 .reg-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;font-size:15.5px;max-width:640px}
 .reg-links li{border-bottom:1px solid var(--ground)}
 .reg-links a{font-weight:600;display:flex;align-items:center;gap:10px;padding:13px 4px}
@@ -271,6 +283,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .cta-band .btn:hover{background:#F6E7E4;border-color:#F6E7E4}
 .cta-band .call{margin-top:18px;font-size:15px;color:#F3D9D5}
 .cta-band .call a{color:#fff;font-weight:600;text-decoration:underline}
+/* off-season: no button between label and phone, so close the gap and keep the
+   longer label wrapping tidily on narrow screens */
+.cta-band.is-concluded{padding-block:46px}
+.cta-band.is-concluded .band-label{margin:0 auto;max-width:44ch;line-height:1.5;text-wrap:balance}
 
 /* ---------- footer ---------- */
 .footer{background:#22272A;color:#B9BEC1;padding:46px 0 0;font-size:14.5px}
@@ -282,6 +298,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .footer nav a{color:#DDE0E2}
 .footer nav a:hover{color:#fff}
 .footer .fhead{font-family:var(--body);font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#8A9094;margin-bottom:8px}
+.footer .flicense{border-top:1px solid #31383C;padding:15px 22px;text-align:center;font-size:12.5px;color:#8A9094;line-height:1.6}
+.footer .flicense a{color:#B9BEC1}
 .footer .fbottom{border-top:1px solid #31383C;padding:16px 22px;text-align:center;font-size:13px;color:#8A9094}
 .footer .fbottom a{color:#B9BEC1}
 
