@@ -198,7 +198,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
    names Osterville; brand red painted through the silhouette's alpha; hidden
    where mask is unsupported so it never falls back to a solid red block */
 .callout-col{position:relative}
-.cape-mark{display:none;position:absolute;z-index:-1;top:-36px;right:-30px;width:330px;aspect-ratio:1}
+.cape-mark{display:none;position:absolute;z-index:-1;top:16px;left:50%;transform:translateX(-50%);width:330px;aspect-ratio:1}
 @supports (mask-image:url(x)) or (-webkit-mask-image:url(x)){.cape-mark{display:block;background:var(--red);opacity:.07;-webkit-mask:url(/images/capecod.webp) no-repeat center/contain;mask:url(/images/capecod.webp) no-repeat center/contain}}
 .welcome-body p{max-width:58ch;margin:0 0 16px;font-size:16.5px}
 .welcome-body p:last-child{margin-bottom:0}
@@ -207,7 +207,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .sports-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;column-gap:16px;row-gap:14px;max-width:860px;margin-inline:auto}
 .sports-list li{background:var(--red);color:#fff;font-family:var(--logo);font-weight:700;font-size:clamp(12.5px,1.4vw,14px);text-transform:uppercase;letter-spacing:.07em;line-height:1;display:inline-flex;align-items:center;padding:13px 46px 13px 16px;clip-path:polygon(0 0,calc(100% - 34px) 6%,100% 50%,calc(100% - 34px) 94%,0 100%);transform:rotate(-1.4deg)}
 .sports-list li:nth-child(even){background:var(--ink);transform:rotate(1.2deg)}
-@media (max-width:860px){.welcome-grid{grid-template-columns:1fr;gap:16px;margin-bottom:38px}.cape-mark{right:0;width:min(300px,72vw)}}
+@media (max-width:860px){.welcome-grid{grid-template-columns:1fr;gap:16px;margin-bottom:38px}.cape-mark{width:min(300px,72vw)}}
 
 /* ---------- facts / cards ---------- */
 .facts-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;margin-bottom:18px}

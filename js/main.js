@@ -15,7 +15,7 @@ var seasonOver = new Date() >= new Date(2026, 7, 8);
     ['/lessons/', 'Lessons'],
     ['/registration/', 'Registration'],
     ['/schedule/', 'Schedule/Rates'],
-    ['/donate/', 'Scholarship'],
+    ['/donate/', 'Tips and Gifts'],
     ['/contact-us/', 'Contact Us']
   ];
   var REGISTER = seasonOver ? '' : '<a class="btn" href="https://campscui.active.com/orgs/RedSkySportsAcademy?orglink=camps-registration">Register</a>';
